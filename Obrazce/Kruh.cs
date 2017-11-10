@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Obrazce
 {
-    class Kruh : Obrazec
+    sealed class Kruh : Obrazec,IKreslenie, IZmenRozmer
     {
         double polomer;
         public Kruh(double polomer)
@@ -17,6 +17,18 @@ namespace Obrazce
         public override double VypocitajObsah()
         {
             return Math.PI * polomer * polomer;
+        }
+        public void Vytlac()
+        {
+            Console.WriteLine("Tlacim kruh");
+        }
+        public void Vykresli()
+        {
+            Console.WriteLine("Kreslim kruh");
+        }
+        public void ZmenRozmer(double rozdiel)
+        {
+            polomer = polomer - rozdiel;
         }
     }
 }
